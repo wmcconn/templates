@@ -55,17 +55,21 @@
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
   },
   "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_LRS"
+   {
+  "apiVersion": "2017-05-10",
+  "name": "linkedTemplate",
+  "type": "Microsoft.Resources/deployments",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
       },
-      "kind": "Storage",
-      "properties": {}
-    },
+      "parameters": {
+        "storageAccountName": { "value": "[variables('storageAccountName')]" },
+        "location": { "value": "[parameters('location')]" }
+      }
+    }
+},
     {
       "apiVersion": "2016-03-30",
       "type": "Microsoft.Network/publicIPAddresses",
