@@ -62,7 +62,7 @@
     "properties": {
       "mode": "Incremental",
       "templateLink": {
-        "uri": "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
+        "uri": "https://github.com/wmcconn/templates/blob/master/linkedtemplate.json"
       },
       "parameters": {
         "storageAccountName": { "value": "[variables('storageAccountName')]" },
