@@ -4,6 +4,7 @@
   "parameters": {
     "storageAccountName":{
       "type": "string",
+      "defaultvalue":"storageacc747",
       "metadata": {
         "description": "Azure Storage account name."
       }
